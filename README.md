@@ -28,10 +28,13 @@ ___________________________________________________
     * ###### worked on by: Axel
 
 * ##### Password cracker
+    * ###### worked on by: 
 
-* ##### Email scanner
+* ##### Email scaper
+    * ###### worked on by: Ali
 
-* ##### 
+* ##### Email sender
+    * ###### worked on by: Simon
     
 
 
@@ -57,7 +60,8 @@ Epost scraper:
 Epost sender:
 * filename: cj_pysend.py
 
-
+##### 3.2 - Rules
+* No script can utilise "OP" imports like Nmap.
 
 
 

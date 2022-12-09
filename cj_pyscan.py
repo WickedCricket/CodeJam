@@ -51,6 +51,18 @@ def get_hostname(ip):
     except:
         return "No hostname found."
 
-ip = get_ip()
-scan_result = scan(ip)
-print_result(scan_result)
+def main():
+    print("=======================")
+    print("| Welcome to NetScan! |")
+    print("|   By imSiddis       |")
+    print("=======================================================================================")
+    print("| Info:                                                                                |")
+    print("| This program will scan the network for active hosts.                                 |")
+    print("| The program will attempt to resolve hostnames of the hosts found during the scan.    |")
+    print("| You can enter an IP address with a CIDR notation to scan a network.                  |")
+    print("| If you do not enter a CIDR notation, the program will scan the specified IP address. |")
+    print("=======================================================================================")
+    ip = get_ip()
+    scan_result = scan(ip)
+    print_result(scan_result)
+main()

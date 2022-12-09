@@ -3,8 +3,6 @@
 # [Name of program]
 
 ### Table of contents:
-
-
 ___________________________________________________
 #### [1] Project Scope
 

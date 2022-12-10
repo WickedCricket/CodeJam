@@ -1,6 +1,6 @@
 ##### Noroff_Stvg_CodeJam
 
-# [Name of program]
+# [Huldra]
 
 ### Table of contents:
 ___________________________________________________

@@ -14,14 +14,14 @@ def get_ip():
     while True:
         try:
             ip = input("Enter an IP address: ")
-            if ip == "":
-                print("You did not enter an IP address.")
-                continue
+            if "/" in ip:
+                return ip
             else:
+                socket.inet_aton(ip)
                 return ip
         except:
-            print("You did not enter a valid IP address.")
-            continue
+            print("Invalid IP address. Please try again.")
+
 
 # This function will use scapy to scan the network for active hosts.
 # It will return a list of dictionaries containing the IP address and MAC address of each host.
@@ -65,4 +65,6 @@ def main():
     ip = get_ip()
     scan_result = scan(ip)
     print_result(scan_result)
+
+
 main()

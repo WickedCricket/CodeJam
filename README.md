@@ -73,7 +73,7 @@ PEP-8: https://peps.python.org/pep-0008/
 * filename: cj_pysend.py
 
 ### 3.2 - Menu structure
-
+* [Placeholder]
 
 ### 3.3 - Rules
 * Do not commit any other file than the one you are working on.

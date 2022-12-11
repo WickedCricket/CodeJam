@@ -3,74 +3,85 @@
 # [Huldra]
 
 ### Table of contents:
-___________________________________________________
+#
 #### [1] Project Scope
 
-___________________________________________________
+
 #### [2] Implemented features
-* ##### 2.1 - 
-* ##### 2.2 - 
-___________________________________________________
+* ##### 2.1 - Main menu
+* ##### 2.2 - Network Scanner
+
 #### [3] Guidlines
-* ##### 3.1 - Naming scheme 
-* ##### 3.2 - 
+* ##### 3.1 - namingscheme
+* ##### 3.2 - Rules.
+
 
 ___________________________________________________
-#
-#
-#
-#
-___________________________________________________
-## Project Scope
-* ##### Network Scanner
-    * ###### worked on by: Axel
+## [1] Project Scope
 
-* ##### Password cracker
-    * ###### worked on by: 
+* ### Network Scanner:
+    *  worked on by: Axel
 
-* ##### Email scaper
-    * ###### worked on by: Ali
+* ### Password cracker:
+    *  worked on by: 
 
-* ##### Email sender
-    * ###### worked on by: Simon
+* ### Email scaper:
+    *  worked on by: Ali
+
+* ### Email sender:
+    *  worked on by: Simon
+
+* ### DDoS attacker:
+    * worked on by:
     
 
+____________________________________________________
+## [2] Implemented fatures
+
+### Main menu:
+    Implemented barebone menu system.
+
+### Network Scanner:
+    being worked on.
+
+### Password cracker
+    [Not started]
+
+### Email scraper:
+    [Not started]
+
+### Email Sender
+    [Not started]
+
+
 
 ____________________________________________________
-## Implemented fatures
-
-
-
-____________________________________________________
-## Guidlines
-##### 3.1 - Naming scheme
+## [3] Guidlines
+### 3.1 - Naming scheme
 PEP-8: https://peps.python.org/pep-0008/
 
-Nettwork Scanner:
+#### Nettwork Scanner:
 * filname: cj_pyscan.py
 
-Password Cracker: 
+#### Password Cracker: 
 * filename: cj_pycrack.py
 
-Epost scraper:
+#### Epost scraper:
 * filename: cj_pyscrape.py
 
-Epost sender:
+#### Epost sender:
 * filename: cj_pysend.py
 
-##### 3.2 - Rules
+### 3.2 - Menu structure
+
+
+### 3.3 - Rules
+* Do not commit any other file than the one you are working on.
+* We use snake_case, not camelCase or PascalCase.
 * No script can utilise "OP" imports like Nmap.
-
-
-
+* We stick to built in modules to the best of our ability.
+* Have fun!
 
 ____________________________________________________
 
 
-### ADD:
-Requirements
-No op Imports
-Python build in allowed
-
-
-make an epost sender

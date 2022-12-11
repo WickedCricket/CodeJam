@@ -42,7 +42,7 @@ ____________________________________________________
     Implemented barebone menu system.
 
 ### Network Scanner:
-    being worked on.
+    Ready for implementation..
 
 ### Password cracker
     [Not started]

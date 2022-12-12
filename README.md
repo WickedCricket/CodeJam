@@ -72,6 +72,9 @@ PEP-8: https://peps.python.org/pep-0008/
 #### Epost sender:
 * filename: cj_pysend.py
 
+#### DDoS Attacker:
+* filename: cj_ddos.py
+
 ### 3.2 - Menu structure
 * [Placeholder]
 

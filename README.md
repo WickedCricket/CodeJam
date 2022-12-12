@@ -23,7 +23,7 @@ ___________________________________________________
     *  worked on by: Axel
 
 * ### Password cracker:
-    *  worked on by: Stian
+    *  worked on by: Stian, Thomas
 
 * ### Email scaper:
     *  worked on by: Ali

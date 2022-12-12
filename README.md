@@ -39,19 +39,19 @@ ____________________________________________________
 ## [2] Implemented fatures
 
 ### Main menu:
-    Implemented barebone menu system.
+  *  Implemented barebone menu system.
 
 ### Network Scanner:
-    being worked on.
+   * being worked on.
 
 ### Password cracker
-    [Not started]
+   * [Not started]
 
 ### Email scraper:
-    [Not started]
+  *  [Not started]
 
 ### Email Sender
-    [Not started]
+   * [Not started]
 
 
 

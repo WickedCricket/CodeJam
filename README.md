@@ -23,7 +23,7 @@ ___________________________________________________
     *  worked on by: Axel
 
 * ### Password cracker:
-    *  worked on by: 
+    *  worked on by: Stian, Thomas
 
 * ### Email scaper:
     *  worked on by: Ali
@@ -32,26 +32,26 @@ ___________________________________________________
     *  worked on by: Simon
 
 * ### DDoS attacker:
-    * worked on by:
+    * worked on by: Ørjan
     
 
 ____________________________________________________
 ## [2] Implemented fatures
 
 ### Main menu:
-    Implemented barebone menu system.
+  *  Implemented barebone menu system.
 
 ### Network Scanner:
     Ready for implementation..
 
 ### Password cracker
-    [Not started]
+   * [Not started]
 
 ### Email scraper:
-    [Not started]
+  *  [Not started]
 
 ### Email Sender
-    [Not started]
+   * [Not started]
 
 
 
@@ -71,6 +71,9 @@ PEP-8: https://peps.python.org/pep-0008/
 
 #### Epost sender:
 * filename: cj_pysend.py
+
+#### DDoS Attacker:
+* filename: cj_ddos.py
 
 ### 3.2 - Menu structure
 * [Placeholder]

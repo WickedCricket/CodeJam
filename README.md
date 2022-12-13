@@ -84,7 +84,7 @@ PEP-8: https://peps.python.org/pep-0008/
 * We use snake_case, not camelCase or PascalCase.
 * No script can utilise "OP" imports like Nmap.
 * We stick to built in modules to the best of our ability.
-* Follow "The Zen of Python" read by importing:  import this.
+* Follow "The Zen of Python" read by importing:  'import this' .
 * Have fun!
 
 ____________________________________________________

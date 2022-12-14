@@ -62,7 +62,7 @@ def get_hostname(ip):
 
 def start():
     try:
-        #main.clear_screen()
+        main.clear_screen()
         print("#=====================#")
         print(f"|     NetScan v{build_num}    |")
         print("|   By imSiddis       |")

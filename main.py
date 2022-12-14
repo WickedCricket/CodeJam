@@ -4,6 +4,7 @@ import cj_pyscan
 # import cj_pysend
 # import cj_ddos
 import cj_pytest
+import os
 
 def start():
 
@@ -37,7 +38,7 @@ def start():
         case '6':
             pass
             cj_pytest.start()
-            
+
 def clear_screen():
     try:
         os.system("cls")

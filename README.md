@@ -84,7 +84,6 @@ PEP-8: https://peps.python.org/pep-0008/
 * No script can utilise "OP" imports like Nmap.
 * We stick to built in modules to the best of our ability.
 * Have fun!
-
 ____________________________________________________
 
 

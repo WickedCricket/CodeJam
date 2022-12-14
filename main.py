@@ -1,6 +1,6 @@
 import cj_pyscan
 # import cj_pycrack
-# import cj_pyscrape
+import cj_pyscrape
 # import cj_pysend
 # import cj_ddos
 import cj_pytest
@@ -42,7 +42,7 @@ def start():
     match choice:
         case '1':
             pass
-            # cj_pyscan.start()
+            cj_pyscan.start()
         case '2':
             pass
             # cj_pycrack.start()
@@ -51,13 +51,13 @@ def start():
             # cj_ddos.start()
         case '4':
             pass
-            # cj_pyscrape.start(emails=None)
+            cj_pyscrape.start(emails=None)
         case '5':
             pass
             # cj_pysend.start()
         case '6':
             pass
-            cj_pytest.loading_screen()
+            # cj_pytest.loading_screen()
 
 def clear_screen():
     try:

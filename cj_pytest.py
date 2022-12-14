@@ -9,5 +9,5 @@ def loading_screen():
             time.sleep(0.1)
             sys.stdout.write("\r" + tool_name + ": " + animation[i % len(animation)])
             sys.stdout.flush()
-print("\nTest completed!!")
-loading_screen()
+            
+        print("\nTest completed!!")

@@ -39,19 +39,19 @@ ____________________________________________________
 ## [2] Implemented fatures
 
 ### Main menu:
-    Implemented barebone menu system.
+  *  Implemented barebone menu system.
 
 ### Network Scanner:
-    being worked on.
+    Ready for implementation..
 
 ### Password cracker
-    [Not started]
+   * [Not started]
 
 ### Email scraper:
-    [Not started]
+  *  [Not started]
 
 ### Email Sender
-    [Not started]
+   * [Not started]
 
 
 
@@ -79,10 +79,14 @@ PEP-8: https://peps.python.org/pep-0008/
 * [Placeholder]
 
 ### 3.3 - Rules
+
 * Do not commit any other file than the one you are working on.
 * We use snake_case, not camelCase or PascalCase.
 * No script can utilise "OP" imports like Nmap.
 * We stick to built in modules to the best of our ability.
+* You are not the only one to read your code, document everyting!
+* Follow "The Zen of Python" read by importing:  'import this'
+
 * Have fun!
 ____________________________________________________
 

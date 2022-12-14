@@ -31,6 +31,7 @@ def start():
         |   4. E-mail Scraper   |\n\
         |   5. E-mail Sender    |\n\
         |   6. Test             |\n\
+        |   0. Exit             |\n\
         |_______________________|\n\
             ')
     

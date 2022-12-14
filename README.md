@@ -36,7 +36,7 @@ ___________________________________________________
     
 
 ____________________________________________________
-## [2] Implemented fatures
+## [2] Implemented features
 
 ### Main menu:
   *  Implemented barebone menu system.

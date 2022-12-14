@@ -8,14 +8,23 @@
 # If the IP address does not include a CIDR notation, the specified IP address will be scanned.
 import scapy.all as scapy
 import socket
+import main
+
+#========================#
+# Build Version Variable #
+#========================#
+build_num = 0.1
 
 # This function will request an IP address from the user.
 def get_ip():
     while True:
         try:
+            print("Type 'q' to quit.")
             ip = input("Enter an IP address: ")
             if "/" in ip:
                 return ip
+            elif ip == "q":
+                break
             else:
                 socket.inet_aton(ip)
                 return ip
@@ -51,17 +60,38 @@ def get_hostname(ip):
     except:
         return "No hostname found."
 
-def main():
-    print("=======================")
-    print("| Welcome to NetScan! |")
-    print("|   By imSiddis       |")
-    print("=======================================================================================")
-    print("| Info:                                                                                |")
-    print("| This program will scan the network for active hosts.                                 |")
-    print("| The program will attempt to resolve hostnames of the hosts found during the scan.    |")
-    print("| You can enter an IP address with a CIDR notation to scan a network.                  |")
-    print("| If you do not enter a CIDR notation, the program will scan the specified IP address. |")
-    print("=======================================================================================")
+def start():
+    try:
+        #main.clear_screen()
+        print("#=====================#")
+        print(f"|     NetScan v{build_num}    |")
+        print("|   By imSiddis       |")
+        print("#=====================#================================================================#")
+        print("| Info:                                                                                |")
+        print("| This program will scan the network for active hosts.                                 |")
+        print("| The program will attempt to resolve hostnames of the hosts found during the scan.    |")
+        print("| You can enter an IP address with a CIDR notation to scan a network.                  |")
+        print("| If you do not enter a CIDR notation, the program will scan the specified IP address. |")
+        print("#====================#=================================================================#")
+        print("| 1. Scan Network/IP |")
+        print("| 0. Back            |")
+        print("#====================#")
+        user_choice = input("Enter choice: ")
+
+        if user_choice == "1":
+            start_scan()
+        elif user_choice == "0":
+            main.start()
+        else:
+            print("Invalid choice")
+            input("Press Enter to try again.")
+            start()
+    except KeyboardInterrupt as e:
+        print("Program killed.")
+
+def start_scan():
     ip = get_ip()
     scan_result = scan(ip)
     print_result(scan_result)
+    input("Press Enter to return to menu.")
+    start()

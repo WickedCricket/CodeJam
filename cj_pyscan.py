@@ -65,6 +65,3 @@ def main():
     ip = get_ip()
     scan_result = scan(ip)
     print_result(scan_result)
-
-
-main()

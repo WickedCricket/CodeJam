@@ -26,7 +26,7 @@ ___________________________________________________
     *  worked on by: Stian, Thomas
 
 * ### Email scaper:
-    *  worked on by: Ali
+    *  worked on by: Axel
 
 * ### Email sender:
     *  worked on by: Simon
@@ -42,13 +42,13 @@ ____________________________________________________
   *  Implemented barebone menu system.
 
 ### Network Scanner:
-    Ready for implementation..
+   * Implemented
 
 ### Password cracker
    * [Not started]
 
 ### Email scraper:
-  *  [Not started]
+  *  Implemented
 
 ### Email Sender
    * [Not started]

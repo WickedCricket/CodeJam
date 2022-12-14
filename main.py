@@ -58,6 +58,9 @@ def start():
         case '6':
             pass
             # cj_pytest.loading_screen()
+        case '0':
+            print("Exiting..")
+            quit()
 
 def clear_screen():
     try:

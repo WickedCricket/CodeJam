@@ -64,9 +64,9 @@ def start():
 
 def clear_screen():
     try:
-        os.system("cls")
-    except:
         os.system("clear")
+    except:
+        os.system("cls")
  
 if __name__ == "__main__":
     start()

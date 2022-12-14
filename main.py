@@ -7,7 +7,7 @@ import cj_pytest
 import os
 
 def start():
-
+    clear_screen()
     print('Welcome to Noroff CodeJam 2022! What would you like to do?\n\
         1. Network Scanner\n\
         2. Password Cracker\n\
@@ -19,7 +19,7 @@ def start():
     
 
     choice = input('Choice: ')
-    clear_screen()
+   
     match choice:
         case '1':
             pass
@@ -32,7 +32,7 @@ def start():
             # cj_ddos.start()
         case '4':
             pass
-            cj_pyscrape.start()
+            cj_pyscrape.start(emails=None)
         case '5':
             pass
             # cj_pysend.start()

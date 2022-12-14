@@ -1,6 +1,6 @@
 import cj_pyscan
 # import cj_pycrack
-# import cj_pyscrape
+import cj_pyscrape
 # import cj_pysend
 # import cj_ddos
 import cj_pytest
@@ -19,6 +19,7 @@ def start():
     
 
     choice = input('Choice: ')
+    clear_screen()
     match choice:
         case '1':
             pass
@@ -31,13 +32,13 @@ def start():
             # cj_ddos.start()
         case '4':
             pass
-            # cj_pyscrape.start()
+            cj_pyscrape.start()
         case '5':
             pass
             # cj_pysend.start()
         case '6':
             pass
-            cj_pytest.start()
+            cj_pytest.loading_screen()
 
 def clear_screen():
     try:

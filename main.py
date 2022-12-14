@@ -1,4 +1,4 @@
-# import cj_pyscan
+import cj_pyscan
 # import cj_pycrack
 # import cj_pyscrape
 # import cj_pysend
@@ -37,8 +37,12 @@ def start():
         case '6':
             pass
             cj_pytest.start()
-
+            
+def clear_screen():
+    try:
+        os.system("cls")
+    except:
+        os.system("clear")
  
 if __name__ == "__main__":
     start()
-6

@@ -43,9 +43,8 @@ def start():
         case '4': cj_pyscrape.start(emails=None)
         case '5': pass # cj_pysend.start()
         case '6': pass # cj_pytest.loading_screen()
-        case '0':
-            print("Exiting..")
-            quit()
+        case '0': print("Exiting.."); quit()
+        case default: start()
 
 def clear_screen():
     try:

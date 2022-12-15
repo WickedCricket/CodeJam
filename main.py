@@ -1,5 +1,5 @@
 import cj_pyscan
-# import cj_pycrack
+import cj_pycrack
 import cj_pyscrape
 # import cj_pysend
 # import cj_ddos
@@ -49,7 +49,7 @@ def start():
             cj_pyscan.start()
         case '2':
             pass
-            # cj_pycrack.start()
+            cj_pycrack.start()
         case '3':
             pass
             # cj_ddos.start()

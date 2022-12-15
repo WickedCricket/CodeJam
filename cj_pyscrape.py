@@ -4,9 +4,18 @@ import sys
 import re
 import urllib.request
 import main
-
-
+import bs4
+import threading
+#===============#
+# Build version #
+#===============#
 build_num = 0.1
+
+#=========================#
+# Ascii / UTF-8 error fix #
+#=========================#
+text = "å"
+encoded_text = text.encode("ascii", errors="replace")
 
 def get_url():
     url = input("Enter a URL: ")
@@ -94,7 +103,115 @@ def save_emails(emails):
     print("=========================================")
     input("Press Enter to return to menu.")
     main.start()
-    
+
+# The Crawler class
+class Spider:
+    def __init__(self, url):
+        self.url = url
+        self.links = []
+        self.emails = []
+        self.visited = []
+
+    def get_links(self):
+        req = urllib.request.Request(
+            self.url,
+            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36'}
+        )
+        html = urllib.request.urlopen(req).read()
+        soup = bs4.BeautifulSoup(html, 'html.parser')
+        for link in soup.find_all('a'):
+            href = link.get('href')
+            if href is not None:
+                if href.startswith("http"):
+                    self.links.append(href)
+                elif href.startswith("/"):
+                    self.links.append(self.url + href)
+                else:
+                    self.links.append(self.url + "/" + href)
+        return self.links
+
+    def get_emails(self):
+        emails = re.findall(r'[\w\.-]+@[\w\.-]+', self.url)  # This regex will find all email addresses on the page
+        self.emails += emails
+        return self.emails
+
+    def crawl(self, hops):
+        self.get_links()
+        self.get_emails()
+        self.visited.append(self.url)
+        if hops > 0:
+            for link in self.links:
+                if link not in self.visited:
+                    spider = Spider(link)
+                    spider.crawl(hops - 1)
+                    self.visited += spider.visited
+                    self.emails += spider.emails
+        return self.emails
+
+    def get_url():
+        url = input("Enter a URL: ")
+        try: # This will check if the URL starts with http:// or https://
+            if url.startswith("http://") or url.startswith("https://"):
+                pass
+            elif not url.startswith("http://") or not url.startswith("https://"): # This will check if the URL starts with http:// or https://
+                url = "https://" + url # If it doesn't, it will add https:// to the start of the URL
+        except urllib.error.URLError as e:
+            print("Error: Invalid URL.")
+            sys.exit()
+        return url
+
+# Crawler threading function.
+def crawl_thread(url, hops):
+    spider = Spider(url)
+    emails = spider.crawl(hops)
+    print_emails(emails)
+
+# This function will start the crawl by requesting the user to input the URL and the number of hops.
+def start_crawl():
+    main.clear_screen()
+    print(f"====================| MailScrape v{build_num} |=====================")
+    print("|                      By imSiddis                         |")
+    print("============================================================")
+    print("| This program will scrape email addresses from a website. |")
+    print("| It will then print them to the screen or save them to a  |")
+    print("| file.                                                    |")
+    print("============================================================")
+    print(" ")
+    url = Spider.get_url()
+    hops = int(input("Enter the number of hops: "))
+    # Request the user to input the number of threads they want to use.
+    threads = int(input("Enter the number of threads to use: "))
+    # Create a list of threads.
+    thread_list = []
+    # Create a list of emails.
+    emails = []
+    # Create a list of visited links.
+    visited = []
+    # Create a list of links.
+    links = []
+    # Start the threads.
+    for i in range(threads):
+        thread = threading.Thread(target=crawl_thread, args=(url, hops))
+        thread_list.append(thread)
+        thread.start()
+        if links in visited:
+            pass
+        else:
+            visited.append(links)
+    # Join the threads.
+    for thread in thread_list:
+        thread.join()
+    # Get the emails.
+    for thread in thread_list:
+        emails += thread.emails
+    # Validate the emails.
+    valid_emails = remove_invalid_emails(emails)
+    # Remove duplicates.
+    valid_emails = remove_duplicates(valid_emails)
+    # Print the emails.
+    print_emails(valid_emails)
+
+
 
 # This function will print the program's information
 def about():
@@ -120,7 +237,8 @@ def start(emails):
     print("What would you like to do with the emails?")
     print("1. Print emails to screen")
     print("2. Save emails to file")
-    print("3. About")
+    print("3. Crawl site for emails (Currently not working)")
+    print("4. About")
     print("0. Back")
     choice = input("Enter your choice: ")
     if choice == "1":
@@ -142,6 +260,8 @@ def start(emails):
         save_emails(sorted_emails)
     
     elif choice == "3":
+        start_crawl()
+    elif choice == "4":
         about()
         input("Press enter to return to the menu") # This will pause the program until the user presses enter
         print("\n\n\n\n\n\n")

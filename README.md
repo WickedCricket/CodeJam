@@ -45,7 +45,7 @@ ____________________________________________________
    * Implemented
 
 ### Password cracker
-   * [Not started]
+   * Implemented
 
 ### Email scraper:
   *  Implemented

@@ -7,11 +7,6 @@ import cj_pytest
 import os
 
 
-
-
-
-
-
 def start():
     clear_screen()
     print('\n\
@@ -39,29 +34,15 @@ def start():
         |_______________________|\n\
             ')
     
-    
-
     choice = input('Choice: ')
    
     match choice:
-        case '1':
-            pass
-            cj_pyscan.start()
-        case '2':
-            pass
-            cj_pycrack.start()
-        case '3':
-            pass
-            # cj_ddos.start()
-        case '4':
-            pass
-            cj_pyscrape.start(emails=None)
-        case '5':
-            pass
-            # cj_pysend.start()
-        case '6':
-            pass
-            # cj_pytest.loading_screen()
+        case '1': cj_pyscan.start()
+        case '2': cj_pycrack.start()
+        case '3': pass # cj_ddos.start()
+        case '4': cj_pyscrape.start(emails=None)
+        case '5': pass # cj_pysend.start()
+        case '6': pass # cj_pytest.loading_screen()
         case '0':
             print("Exiting..")
             quit()

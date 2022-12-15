@@ -6,6 +6,7 @@ import urllib.request
 import main
 import bs4
 import threading
+import time
 #===============#
 # Build version #
 #===============#
@@ -14,8 +15,8 @@ build_num = 0.1
 #=========================#
 # Ascii / UTF-8 error fix #
 #=========================#
-text = "å"
-encoded_text = text.encode("ascii", errors="replace")
+#text = "æ", "ø", "å", "Æ", "Ø", "Å"
+#encoded_text = text.encode("ascii", errors="replace")
 
 def get_url():
     url = input("Enter a URL: ")
@@ -104,7 +105,10 @@ def save_emails(emails):
     input("Press Enter to return to menu.")
     main.start()
 
-# The Crawler class
+#=====================#
+# The Crawler Section #
+#   ~ Starts here ~   #
+#=====================#
 class Spider:
     def __init__(self, url):
         self.url = url
@@ -194,6 +198,7 @@ def start_crawl():
         thread = threading.Thread(target=crawl_thread, args=(url, hops))
         thread_list.append(thread)
         thread.start()
+        time.sleep(1)
         if links in visited:
             pass
         else:
@@ -211,7 +216,15 @@ def start_crawl():
     # Print the emails.
     print_emails(valid_emails)
 
+#=====================#
+# The Crawler Section #
+#    ~ Ends here ~    #
+#=====================#
 
+#=====================#
+#   The Menu Section  #
+#   ~ Starts here ~   #
+#=====================#
 
 # This function will print the program's information
 def about():
@@ -260,7 +273,8 @@ def start(emails):
         save_emails(sorted_emails)
     
     elif choice == "3":
-        start_crawl()
+        pass
+        #start_crawl()
     elif choice == "4":
         about()
         input("Press enter to return to the menu") # This will pause the program until the user presses enter
@@ -285,3 +299,8 @@ def confirm_exit():
     else:
         print("Invalid choice")
         confirm_exit()
+
+#=====================#
+#   The Menu Section  #
+#    ~ Ends here ~    #
+#=====================#

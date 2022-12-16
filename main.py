@@ -47,9 +47,9 @@ def start():
         case default: start()
 
 def clear_screen():
-    try:
+    if os.name == "nt":
         os.system("cls")
-    except:
+    else:
         os.system("clear")
  
 if __name__ == "__main__":

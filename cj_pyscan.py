@@ -82,6 +82,7 @@ def start():
         user_choice = input("Enter choice: ")
 
         if user_choice == "1":
+            main.clear_screen()
             start_scan()
         elif user_choice == "0":
             main.start()

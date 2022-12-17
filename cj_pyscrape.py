@@ -229,24 +229,26 @@ def start_crawl():
 # This function will print the program's information
 def about():
     main.clear_screen()
-    print(f"====================| MailScrape v{build_num} |=====================")
+    print(f"#===================| MailScrape v{build_num} |====================#")
     print("|                      by imSiddis.                        |")
-    print("============================================================")
+    print("#==========================================================#")
     print("| This program will scrape email addresses from a website. |")
     print("| It will then print them to the screen or save them to a  |")
     print("| file.                                                    |")
-    print("============================================================")
+    print("#==========================================================#")
+    print("# Follow me on github: https://github.com/imsiddis         #")
+    print("#==========================================================#")
 
 # A menu function to allow the user to choose what they want to do with the emails
 # This menu should be called before the emails have been scraped and sorted.
 
 def start(emails):
     main.clear_screen()
-    print(f"====================| MailScrape v{build_num} |=====================")
+    print(f"#===================| MailScrape v{build_num} |====================#")
     print("|                      By imSiddis                         |")
-    print("============================================================")
+    print("#==========================================================#")
     print("| This program will scrape email addresses from a website. |")
-    print("============================================================")
+    print("#==========================================================#")
     print("What would you like to do with the emails?")
     print("1. Print emails to screen")
     print("2. Save emails to file")

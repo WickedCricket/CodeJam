@@ -17,6 +17,7 @@ build_num = 0.1
 
 # This function will request an IP address from the user.
 def get_ip():
+    about()
     while True:
         try:
             print("Type 'q' to quit.")
@@ -88,10 +89,8 @@ def start():
         print("|                                Example of IP syntax:                                 |")
         print("|               With CIDR: 192.168.0.1/24 | Without: 192.168.0.1                       |")
         print("#====================#=================================================================#")
-        print("|                                Example of IP syntax:                                 |")
-        print("|               With CIDR: 192.168.0.1/24 | Without: 192.168.0.1                       |")
-        print("#====================#=================================================================#")
         print("| 1. Scan Network/IP |")
+        print("| 2. About           |")
         print("| 0. Back            |")
         print("#====================#")
         user_choice = input("Enter choice: ")
@@ -99,6 +98,11 @@ def start():
         if user_choice == "1":
             main.clear_screen()
             start_scan()
+        elif user_choice == "2":
+            main.clear_screen()
+            about()
+            input("Press Enter to return to menu.")
+            start()
         elif user_choice == "0":
             main.start()
         else:

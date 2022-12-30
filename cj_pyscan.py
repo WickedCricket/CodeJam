@@ -9,6 +9,7 @@
 import scapy.all as scapy
 import socket
 import main
+import sys
 
 #========================#
 # Build Version Variable #
@@ -61,6 +62,36 @@ def get_hostname(ip):
     except:
         return "No hostname found."
 
+def scan_port(ip, port):
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(0.5)
+        result = sock.connect_ex((ip, port))
+        if result == 0:
+            print("Port " + str(port) + " is open")
+        sock.close()
+    except socket.error:
+        print("Couldn't connect to server")
+        sys.exit()
+
+def port_scan(ip,start_port=1,end_port=100):
+    print("#========================================#")
+    print("# Scanning ports on " + ip)
+    print("# Scanning ports " + str(start_port) + " to " + str(end_port))
+    print("# This may take a while...")
+    print("#========================================#")
+    for port in range(start_port, end_port):
+        scan_port(ip, port)
+
+def port_menu():
+    print("Enter the IP address you would like to scan.")
+    print("Type 'q' to quit.")
+    ip = input("Enter IP: ")
+    print("Enter the port range you would like to scan.")
+    start_port = int(input("Enter start port: "))
+    end_port = int(input("Enter end port: "))
+    port_scan(ip, start_port, end_port)
+
 def about():
         print("#======================================================================================#")
         print("| Info:                                                                                |")
@@ -90,7 +121,8 @@ def start():
         print("|               With CIDR: 192.168.0.1/24 | Without: 192.168.0.1                       |")
         print("#====================#=================================================================#")
         print("| 1. Scan Network/IP |")
-        print("| 2. About           |")
+        print("| 2. Port scan       |")
+        print("| 3. About           |")
         print("| 0. Back            |")
         print("#====================#")
         user_choice = input("Enter choice: ")
@@ -99,6 +131,11 @@ def start():
             main.clear_screen()
             start_scan()
         elif user_choice == "2":
+            main.clear_screen()
+            port_menu()
+            input("Press Enter to return to menu.")
+            start()
+        elif user_choice == "3":
             main.clear_screen()
             about()
             input("Press Enter to return to menu.")

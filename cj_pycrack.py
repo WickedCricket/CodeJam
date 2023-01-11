@@ -18,7 +18,7 @@ def logo():
     
 # asks user if they want to save the cracked hashes to a file
 def where_to_save_output(cracked):
-    if input("\n Save output to file? (yes/no) :") == "yes":
+    if input("\n Save output to file? (yes/no) :") == "yes" or "y":
         # open a file with user defined name, if not already existing it will create a new one.
         output = open(input(" Output FileName >"), "w")
         # goes thru every item in the list cracked/list_of_results and writes them in the file
@@ -47,15 +47,19 @@ def check_hash(password_list, hashes_list):
             # strips spaces from front and back of the hash to make it more accurate
             current_hash = line.strip()
             # compares the length of the current hash to an example one to determine if its the same length.
-            if len(current_hash)==len('ae11fd697ec92c7c98de3fac23aba525') and current_hash.isdigit()==False and current_hash.isalpha()==False and current_hash.isalnum()==True:
+            if len(current_hash)==len(range(32)) and current_hash.isdigit()==False and current_hash.isalpha()==False and current_hash.isalnum()==True:
                 # appends the result of crack_hash(current_hash, type, password_list) to a list called list_of_results. This would look something like this "type | hash:password"
                 list_of_results.append(crack_hash(current_hash, "md5", password_list))
-            elif len(current_hash)==len('ea8e6f0935b34e2e6573b89c0856c81b831ef2cadfdee9f44eb9aa0955155ba5e8dd97f85c73f030666846773c91404fb0e12fb38936c56f8cf38a33ac89a24e') and current_hash.isdigit()==False and current_hash.isalpha()==False and current_hash.isalnum()==True:
+
+            elif len(current_hash)==len(range(128)) and current_hash.isdigit()==False and current_hash.isalpha()==False and current_hash.isalnum()==True:
                 list_of_results.append(crack_hash(current_hash, "sha512", password_list))
-            elif len(current_hash)==len('2c740d20dab7f14ec30510a11f8fd78b82bc3a711abe8a993acdb323e78e6d5e') and current_hash.isdigit()==False and current_hash.isalpha()==False and current_hash.isalnum()==True:
+
+            elif len(current_hash)==len(range(64)) and current_hash.isdigit()==False and current_hash.isalpha()==False and current_hash.isalnum()==True:
                 list_of_results.append(crack_hash(current_hash, "sha256", password_list))
-            elif len(current_hash)==len('4a1d4dbc1e193ec3ab2e9213876ceb8f4db72333') and current_hash.isdigit()==False and current_hash.isalpha()==False and current_hash.isalnum()==True:
+
+            elif len(current_hash)==len(40) and current_hash.isdigit()==False and current_hash.isalpha()==False and current_hash.isalnum()==True:
                 list_of_results.append(crack_hash(current_hash, "sha1", password_list))
+
             else:
                 # if a hash in the file does not match with the parameters of any of the types it will print an error
                 print(f"Could not Identify the hash type | {current_hash}")

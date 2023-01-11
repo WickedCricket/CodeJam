@@ -1,6 +1,7 @@
 import hashlib
 import main
 from time import sleep
+import tkinter
 list_of_results = [] # stores the strings containing type of hash, hash and password
 
 # draws the logo when called

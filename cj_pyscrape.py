@@ -36,8 +36,10 @@ def get_html(url):
     return html
 
 def get_emails(html):
+    regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+    r2 = r'[\w\.-]+@[\w\.-]+'
     email_list = []
-    emails = re.findall(r'[\w\.-]+@[\w\.-]+', str(html)) # This regex will find all email addresses on the page
+    emails = re.findall(regex, str(html)) # This regex will find all email addresses on the page
     email_list.append(emails)
     return email_list
 
@@ -51,36 +53,10 @@ def remove_duplicates(emails):
             email_list.append(i)
         return email_list # This will return the list without duplicates
 
-# A function that will remove emails not ending with TDL like .com, .net, .org, etc.
-def remove_invalid_emails(emails):
-    email_endwith = [".no",".se",".com",".uk",".to",".net",
-                    ".gov",".org",".edu",".mil",".int",".arpa",
-                    ".biz",".aero",".coop",".info",".name",".pro",
-                    ".museum",".coop",".travel",".mobi",".cat",".jobs",
-                    ".tel",".asia",".post",".edu",".mil",".net",
-                    ".org",".biz",".info",".name",".pro",".aero",".coop",".museum",
-                    ".int",".travel",".post",".jobs",".mobi",".tel",".xxx",".ac",".ad",
-                    ".ae",".af",".ag",".ai",".al",".am",".an",".ao",".aq",".ar",".as",".at",".au",
-                    ".aw",".az",".ba",".bb",".bd",".be",".bf",".bg",".bh",".bi",".bj",".bm",".bn",
-                    ".bo",".br",".bs",".bt",".bv",".bw",".by",".bz",".ca",".cc",".cd",".cf",".cg",
-                    ".ch",".ci",".ck",".cl",".cm",".cn",".co",".cr",".cu",".cv",".cx",".cy",".cz",
-                    ".de",".dj",".dk",".dm",".do",".dz",".ec",".ee",".eg",".eh",".er",".es",".et",
-                    ".fi",".fj",".fk",".fm",".fo",".fr",".ga",".gb",".gd",".ge",".gf",".gg",".gh",
-                    ".gi",".gl",".gm",".gn",".gp",".gq",".gr",".gs",".gt",".gu",".gw",".gy",".hk",
-                    ".hm",".hn",".hr",".ht",".hu",".id",".ie",".il",".im",".in",".io",".iq",".ir",
-                    ".is",".it",".je",".jm",".jo",".jp",".ke",".kg",".kh",".ki",".km",".kn",".kp",
-                    ".kr",".kw",".ky",".kz","."]
-    valid_emails = [remove_duplicates(emails)]
-    for email in emails:
-        for i in email_endwith:
-            if email.endswith(i):
-                valid_emails.append(email)
-    return valid_emails
+
 
 def print_emails(emails):
     main.clear_screen()
-    purged_emails = remove_invalid_emails(emails)
-    emails = purged_emails[1:]
     print("=========================================")
     print("|    ~~ Emails found on the page ~~     |")
     print("=========================================")
@@ -93,8 +69,6 @@ def print_emails(emails):
 
 # A function to append the non-duplicate emails to a file.
 def save_emails(emails):
-    purged_emails = remove_invalid_emails(emails)
-    emails = purged_emails[1:]
     with open("emails.txt", "a") as file: 
         for email in emails:
             file.write(email + "\n")
@@ -210,7 +184,6 @@ def start_crawl():
     for thread in thread_list:
         emails += thread.emails
     # Validate the emails.
-    valid_emails = remove_invalid_emails(emails)
     # Remove duplicates.
     valid_emails = remove_duplicates(valid_emails)
     # Print the emails.
